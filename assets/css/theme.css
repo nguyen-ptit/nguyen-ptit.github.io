@@ -680,7 +680,7 @@ progress {
 
     .container,
     .container-sm {
-        max-width: 540px;
+        max-width: 90%;
         justify-content: initial;
 
     }
@@ -692,7 +692,7 @@ progress {
     .container,
     .container-sm,
     .container-md {
-        max-width: 720px;
+        max-width: 90%;
         justify-content: inherit !important;
     }
 }
@@ -703,7 +703,7 @@ progress {
     .container-sm,
     .container-md,
     .container-lg {
-        max-width: 960px;
+        max-width: 80%;
     }
 }
 
@@ -714,7 +714,7 @@ progress {
     .container-md,
     .container-lg,
     .container-xl {
-        max-width: 1140px;
+        max-width: 85%;
     }
 }
 
@@ -726,7 +726,7 @@ progress {
     .container-lg,
     .container-xl,
     .container-xxl {
-        max-width: 1480px;
+        max-width: 80%;
     }
 }
 
@@ -5394,7 +5394,7 @@ fieldset:disabled .btn {
     flex-wrap: inherit;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
+    /* align-items: center; */
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     /* justify-content: space-between; */
@@ -5411,7 +5411,7 @@ fieldset:disabled .btn {
 
 .navbar-brand img {
     width: 280px;
-    height: 70px;
+    height: 54px;
 }
 
 @media (min-width: 1200px) {
