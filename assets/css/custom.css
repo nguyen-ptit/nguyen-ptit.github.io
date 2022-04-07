@@ -95,11 +95,30 @@ body {}
     height: 200px;
 }
 
+.job-image{
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+}
+
+.job-title{
+    min-height: 100px;
+    padding-top: 20px;
+}
+
+
 @media (max-width: 768px) {
     .categories-image_active {
         object-fit: cover;
         width: 100%;
-        height: 100% !important;
+        /* height: 100% !important; */
+    }
+
+    .job-title{
+        min-height: 0;
     }
 }
 
@@ -229,7 +248,7 @@ body {}
 }
 
 .owl-carousel .owl-item img {
-    width: auto !important;
+    /* width: auto !important; */
 }
 
 @media (min-width:768px) {
@@ -261,6 +280,7 @@ body {}
     width: 100% !important;
     position: relative;
 }
+
 
 .hearder-banner .header-banner-text {
     position: absolute;
