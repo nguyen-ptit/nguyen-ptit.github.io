@@ -2,84 +2,11 @@ html {
     scroll-behavior: smooth;
 }
 
-body {}
-
-@media (max-width: 550px) {
-    #intro-images {
-        display: none;
-    }
-}
-
-.border--round {
-    border-radius: 6px;
-}
-
-.border--round:before {
-    border-radius: 6px;
-}
-
-.border--round .background-image-holder {
-    border-radius: 6px;
-}
-
-.border--round [data-scrim-top]:before,
-.border--round [data-scrim-bottom]:before,
-.border--round [data-overlay]:before {
-    border-radius: 6px;
-}
-
-@media (min-width: 768px) {
-    .cover .triptych {
-        margin-top: 5.42857143em;
-    }
-}
-
-.triptych.border--round a:nth-child(2) img {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    z-index: 2;
-    box-shadow: 0 23px 40px rgba(0, 0, 0, 0.2);
-}
-
-.triptych.border--round img {
-    position: relative;
-    border-radius: 6px;
-    width: 33.333333%;
-    float: left;
-    margin: 0;
-}
-
-.triptych.border--round img:nth-child(2) {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    z-index: 2;
-    box-shadow: 0 23px 40px rgba(0, 0, 0, 0.2);
-}
-
-.cover .triptych {
-    margin-top: 3.71428571em;
-}
-
-@media all and (min-width: 768px) {
-    .cover .triptych {
-        margin-top: 7.42857143em;
-    }
-}
-
 /*---------------------------------------------------*/
 
 /* ----------------HEADER------------------- */
-
-.custom-bottom-banner {
-    height: 300px;
-}
-
 .custom-header-title {
     width: 60vw;
-}
-
-.partner-image {
-    height: 150px;
 }
 
 .categories-image {
@@ -95,7 +22,7 @@ body {}
     height: 200px;
 }
 
-.job-image{
+.job-image {
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
@@ -104,7 +31,7 @@ body {}
     padding-top: 20px;
 }
 
-.job-title{
+.job-title {
     min-height: 100px;
     padding-top: 20px;
 }
@@ -117,7 +44,7 @@ body {}
         /* height: 100% !important; */
     }
 
-    .job-title{
+    .job-title {
         min-height: 0;
     }
 }
@@ -142,22 +69,19 @@ body {}
 .custom-card {
     justify-content: space-between;
     border-radius: 10px;
-    /* box-shadow: 2px 2px 10px rgba(0,0,0,0.13); */
-    /* box-shadow: 4px 4px 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
-.card-size-large{
+.card-size-large {
     min-height: 710px;
 }
 
-.card-size-normal{
+.card-size-normal {
     min-height: 585px;
 }
 
-.card-size-small{
+.card-size-small {
     min-height: 530px;
 }
-
 
 .job-card {
     border: 1px solid #DFDFDF;
@@ -180,10 +104,6 @@ body {}
 }
 
 @media (max-width: 768px) {
-    .custom-card {
-        /* margin: 20px; */
-    }
-
     .skills-item {
         flex-direction: column;
     }
@@ -204,25 +124,12 @@ body {}
         margin: 15px;
         max-width: 450px;
     }
-
-    /* .owl-carousel-theme3 .owl-stage-outer .owl-item {
-        width: auto !important;
-    } */
-    
-
-    /* .owl-carousel-theme2 .custom-card {
-        margin-left: 150px !important;
-    } */
-}
-
-.custom-card img {
-    /* min-height: 150px; */
-    /* padding-bottom: 16px; */
 }
 
 .custom-card h5 {
-    min-height: 46px ;
+    min-height: 46px;
 }
+
 .custom-background-number {
     background-color: #F2F6FD;
     width: 70px;
@@ -231,8 +138,6 @@ body {}
     justify-content: center;
     align-items: center;
 }
-
-
 
 .owl-nav {
     margin: 0px !important;
@@ -261,10 +166,6 @@ body {}
     margin: 10px;
 }
 
-.owl-carousel .owl-item img {
-    /* width: auto !important; */
-}
-
 @media (min-width:768px) {
 
     .owl-prev {
@@ -281,12 +182,10 @@ body {}
 
 }
 
-
 .footer {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
 }
-
 
 /* Course Css */
 
@@ -372,11 +271,9 @@ body {}
 
 /* Jobs */
 .banner-partner {
-    /* border: 1px solid black; */
     border-radius: 10px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     align-items: center;
-    /* min-height: 250px; */
     margin: 10px 10px 40px 10px;
 }
 
@@ -411,8 +308,6 @@ body {}
     background-color: #f9fafd;
     color: #333333;
     border: none;
-    /* padding-top: 21px;
-    padding-bottom: 21px; */
     padding: 16px;
     width: 99%;
     border-radius: 10px;
@@ -438,18 +333,6 @@ body {}
 /* ----------------------SLIDE------------------------------- */
 * {
     box-sizing: border-box
-}
-
-/* thiết lập style cho slideshow container */
-.slideshow-container {
-    max-width: 100%;
-    position: relative;
-    margin: auto;
-}
-
-/* ẩn hình ảnh cho phần tử slideshow */
-.mySlides {
-    display: none;
 }
 
 /* thiết kế nút mũi tên*/
@@ -487,57 +370,6 @@ body {}
     object-fit: cover
 }
 
-/* Thiết lập style cho nội dung của mỗi phần tử slideshow */
-/* Thiết lập style cho số hiển thị của phần tử */
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-}
-
-.slide-text-container {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 80%;
-    position: relative;
-    text-align: center;
-    margin: auto;
-    min-height: 100px;
-    margin-top: -100px;
-}
-
-@media screen and (max-width: 500px) {
-    .slide-text-container {
-        padding-top: -180px !important;
-        padding-right: 15px !important;
-        padding-left: 15px !important;
-    }
-}
-
-.slide-text {
-    color: white;
-}
-
-/* thiết lập style  nút tròn điều khiển*/
-.dot-container {
-    text-align: center;
-}
-
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.dot:hover {
-    background-color: #717171;
-}
 
 .banner-content {
     width: 80%;
@@ -610,48 +442,6 @@ body {}
 .custom-icon {
     width: 100%;
     object-fit: contain
-}
-
-/* ---------- MODAL ---------*/
-.custom-modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-/* Modal Content */
-.custom-modal-content {
-    background-color: #ffffff;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #3c3c3c;
-    width: 60%;
-}
-
-/* The Close Button */
-.custom-modal-close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.custom-modal-close:hover,
-.custom-modal-close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .custom-content {
@@ -732,6 +522,8 @@ body {}
     display: none;
 }
 
+
+/* style button */
 #btn-back-to-top {
     display: none;
     position: fixed;
@@ -746,8 +538,32 @@ body {}
     width: 48px;
     height: 48px;
     border-radius: 50%;
-  }
+}
 
-  #btn-back-to-top:hover {
-   background-color: #0030a1c7;
-  }
+#btn-back-to-top:hover {
+    background-color: #0030a1c7;
+}
+
+#button {
+    background-color: transparent;
+    color: #387BF5;
+    border: none;
+    display: flex;
+}
+
+#wrapper {
+    overflow: hidden;
+    transition: max-height 300ms;
+    max-height: 1720px;
+}
+
+@media (max-width: 1200px) {
+    #wrapper {
+        max-height: 3400px;
+    }
+
+}
+
+#wrapper.open {
+    max-height: 100%;
+}
