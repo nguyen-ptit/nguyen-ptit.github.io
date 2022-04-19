@@ -71,16 +71,8 @@ html {
     border-radius: 10px;
 }
 
-.card-size-large {
-    min-height: 710px;
-}
-
 .card-size-normal {
-    min-height: 585px;
-}
-
-.card-size-small {
-    min-height: 530px;
+    min-height: 567px;
 }
 
 .job-card {
