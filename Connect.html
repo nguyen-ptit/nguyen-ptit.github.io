@@ -83,15 +83,15 @@
         <!-- Form -->
         <div class="form-contact pt-6" id="formConnect">
             <div class="container">
-                <form class="row">
+                <form class="row needs-validation">
                     <div class="form-group col-sm-12">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Họ và tên:">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Họ và tên:" required oninvalid="this.setCustomValidity('Vui lòng nhập vào họ tên')" oninput="setCustomValidity('')">
                     </div>
                     <div class="form-group col-sm-12">
-                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="Số điện thoại:">
+                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="Số điện thoại:" required oninvalid="this.setCustomValidity('Vui lòng nhập vào số điện thoại')" oninput="setCustomValidity('')">
                     </div>
                     <div class="form-group col-sm-12">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email:">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email:" required oninvalid="this.setCustomValidity('Vui lòng nhập vào email của bạn')" oninput="setCustomValidity('')">
                     </div>
 
                     <div class="row">
@@ -105,11 +105,11 @@
                     </div>
 
                     <div class="form-group col-sm-12">
-                        <textarea class="form-control" id="description" rows="6" placeholder="Nội dung:"></textarea>
+                        <textarea class="form-control" id="description" rows="6" placeholder="Nội dung:"
+                         required oninvalid="this.setCustomValidity('Vui lòng nhập vào nội dung cần gửi')" oninput="setCustomValidity('')" ></textarea>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary btn-Form" id="submit"
-                            onclick="submitAlert();">Gửi</button>
+                        <button type="submit" class="btn btn-primary btn-Form" id="submit" onclick="submitAlert()">Gửi</button>
                     </div>
                 </form>
             </div>
@@ -207,55 +207,51 @@
     <!-- back to top Button  -->
     <script src="assets/js/toTop-btn.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("button").click(
-        function () {
-          var form = {
-            "name": document.getElementById("name").value,
-            "phone": document.getElementById("phone").value,
-            "email": document.getElementById("email").value,
-            // "company": document.getElementById("team").value,
-            // "group": document.getElementById("position").value,
-            "description": "ĐƠN VỊ CÔNG TÁC: " + document.getElementById("team").value + "<br>" + "VỊ TRÍ CÔNG TÁC: " + document.getElementById("position").value + "<br> "+ "NỘI DUNG: " + document.getElementById("description").value,
-            "subject": "Liên hệ IOM",
-            "priority": 1, 
-            "status": 2
-          }
-          var yourdomain = 'tinasoft'; // Your freshdesk domain name. Ex., yourcompany
-          var api_key = 'NMInYbuYa1Xd1ph9KcgS'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
-          ticket_data = JSON.stringify(form);
-          console.log(ticket_data);
-          $.ajax(
-            {
-              url: "https://" + yourdomain + ".freshdesk.com/api/v2/tickets",
-              type: 'POST',
-              contentType: "application/json; charset=utf-8",
-              dataType: "json",
-              headers: {
-                "Authorization": "Basic " + btoa(api_key + ":x")
-              },
-              data: ticket_data,
-              success: function (data, textStatus, jqXHR) {
-                $('#result').text('Success');
-                $('#code').text(jqXHR.status);
-                $('#response').html(JSON.stringify(data, null, "<br/>"));
-              },
-              error: function (jqXHR, tranStatus) {
-                $('#result').text('Error');
-                $('#code').text(jqXHR.status);
-                x_request_id = jqXHR.getResponseHeader('X-Request-Id');
-                response_text = jqXHR.responseText;
-                $('#response').html(" Error Message : <b style='color: red'>" + response_text + "</b>.<br/> Your X-Request-Id is : <b>" + x_request_id + "</b>. Please contact support@freshdesk.com with this id for more information.");
+    <script>
+        $(document).ready(function () {
+            $("button").click(
+                function () {
+                    var form = {
+                        "name": document.getElementById("name").value,
+                        "phone": document.getElementById("phone").value,
+                        "email": document.getElementById("email").value,
+                        "description": "ĐƠN VỊ CÔNG TÁC: " + document.getElementById("team").value + "<br>" + "VỊ TRÍ CÔNG TÁC: " + document.getElementById("position").value + "<br> " + "NỘI DUNG: " + document.getElementById("description").value,
+                        "subject": "Liên hệ IOM",
+                        "priority": 1,
+                        "status": 2
+                    }
+                    var yourdomain = 'tinasoft'; // Your freshdesk domain name. Ex., yourcompany
+                    var api_key = 'NMInYbuYa1Xd1ph9KcgS'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
+                    ticket_data = JSON.stringify(form);
+                    $.ajax(
+                        {
+                            url: "https://" + yourdomain + ".freshdesk.com/api/v2/tickets",
+                            type: 'POST',
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            headers: {
+                                "Authorization": "Basic " + btoa(api_key + ":x")
+                            },
+                            data: ticket_data,
+                            success: function (data, textStatus, jqXHR) {
+                                $('#result').text('Success');
+                                $('#code').text(jqXHR.status);
+                                $('#response').html(JSON.stringify(data, null, "<br/>"));
+                            },
+                            error: function (jqXHR, tranStatus) {
+                                $('#result').text('Error');
+                                $('#code').text(jqXHR.status);
+                                x_request_id = jqXHR.getResponseHeader('X-Request-Id');
+                                response_text = jqXHR.responseText;
+                                $('#response').html(" Error Message : <b style='color: red'>" + response_text + "</b>.<br/> Your X-Request-Id is : <b>" + x_request_id + "</b>. Please contact support@freshdesk.com with this id for more information.");
+                            }
+                        }
+                    );
 
-              }
-            }
-          );
-        }
-      );
-    });
-  </script>
+                }
+            );
+        });
+    </script>
 </body>
 
 </html>

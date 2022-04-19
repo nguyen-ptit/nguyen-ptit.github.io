@@ -519,13 +519,19 @@ html {
     position: fixed;
     right: 1%;
     top: 10%;
-    background-color: white;
     width: 500px;
+    background-color: white;
     border-left: #b8debc 3px solid;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
-    animation: slideInLeft ease .3s, fadeOut linear 1s 3s forwards;
+    animation: slideInLeft ease .3s, fadeOut linear 1s 2s forwards;
+}
+
+@media (max-width: 768px) {
+    #toast-success{
+        width: 350px;
+    }
 }
 
 @keyframes slideInLeft {
