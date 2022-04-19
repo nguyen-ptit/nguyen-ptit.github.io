@@ -42,9 +42,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!--    Fontawesome 5-->
     <script src="https://kit.fontawesome.com/13de33b604.js" crossorigin="anonymous"></script>
+    <script src="assets/js/toast-btn.js"></script>
 
 
 </head>
+
 <body>
     <button onclick="topFunction()" id="btn-back-to-top" title="Go to top"> <i class="fas fa-arrow-up"></i></button>
     <main class="main" id="top">
@@ -79,41 +81,41 @@
             </div>
         </div>
         <!-- Form -->
-        <div class="form-contact pt-6">
+        <div class="form-contact pt-6" id="formConnect">
             <div class="container">
                 <form class="row">
                     <div class="form-group col-sm-12">
-                        <input type="text" class="form-control" name="name" id="inputName" placeholder="Họ và tên:">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Họ và tên:">
                     </div>
                     <div class="form-group col-sm-12">
-                        <input type="tel" class="form-control" name="phone" id="inputNumber"
-                            placeholder="Số điện thoại:">
+                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="Số điện thoại:">
                     </div>
                     <div class="form-group col-sm-12">
-                        <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email:">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email:">
                     </div>
 
                     <div class="row">
                         <div class="form-group col-md-6 col-sm-12">
-                            <input type="text" class="form-control" id="inputTeams" placeholder="Đơn vị công tác:">
+                            <input type="text" class="form-control" id="team" placeholder="Đơn vị công tác:">
                         </div>
                         <div class="form-group col-md-6 col-sm-12">
-                            <input type="text" class="form-control form-group1 " id="inputPosition"
+                            <input type="text" class="form-control form-group1 " id="position"
                                 placeholder="Vị trí công tác:">
                         </div>
                     </div>
 
                     <div class="form-group col-sm-12">
-                        <textarea class="form-control" id="inputMessage" rows="6" placeholder="Nội dung:"></textarea>
+                        <textarea class="form-control" id="description" rows="6" placeholder="Nội dung:"></textarea>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary btn-Form">Gửi</button>
+                        <button type="submit" class="btn btn-primary btn-Form" id="submit"
+                            onclick="submitAlert();">Gửi</button>
                     </div>
                 </form>
             </div>
         </div>
-
-
+        <div id="toast">
+        </div>
         <!----------------------Footer-------------------------->
         <footer class="footer bg-200 py-6 border-top">
             <div class="container">
@@ -179,7 +181,8 @@
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0 text-black ps-sm-4">
-                        <p class="text-uppercase mb-1 fw-bold">NỀN TẢNG ĐƯỢC PHÁT TRIỂN DƯỚI SỰ HỢP TÁC CỦA TỔNG CỤC GIÁO DỤC NGHỀ NGHIỆP VÀ TỔ CHỨC DI CƯ QUỐC TẾ
+                        <p class="text-uppercase mb-1 fw-bold">NỀN TẢNG ĐƯỢC PHÁT TRIỂN DƯỚI SỰ HỢP TÁC CỦA TỔNG CỤC
+                            GIÁO DỤC NGHỀ NGHIỆP VÀ TỔ CHỨC DI CƯ QUỐC TẾ
                         </p>
                         <div class="d-flex">
                             <img alt="" src="assets/img/Footer/line1.png" class="custom-image" />
@@ -203,6 +206,56 @@
     <script src="assets/js/home-modal.js"></script>
     <!-- back to top Button  -->
     <script src="assets/js/toTop-btn.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("button").click(
+        function () {
+          var form = {
+            "name": document.getElementById("name").value,
+            "phone": document.getElementById("phone").value,
+            "email": document.getElementById("email").value,
+            // "company": document.getElementById("team").value,
+            // "group": document.getElementById("position").value,
+            "description": "Đơn vị công tác:" + document.getElementById("team").value + "<br>" + "Vị trí:" + document.getElementById("position").value + "<br> "+ "Nội dung:" + document.getElementById("description").value,
+            "subject": "Liên hệ IOM",
+            "priority": 1, 
+            "status": 2
+          }
+          var yourdomain = 'tinasoft'; // Your freshdesk domain name. Ex., yourcompany
+          var api_key = 'NMInYbuYa1Xd1ph9KcgS'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
+          ticket_data = JSON.stringify(form);
+          console.log(ticket_data);
+          $.ajax(
+            {
+              url: "https://" + yourdomain + ".freshdesk.com/api/v2/tickets",
+              type: 'POST',
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              headers: {
+                "Authorization": "Basic " + btoa(api_key + ":x")
+              },
+              data: ticket_data,
+              success: function (data, textStatus, jqXHR) {
+                $('#result').text('Success');
+                $('#code').text(jqXHR.status);
+                $('#response').html(JSON.stringify(data, null, "<br/>"));
+              },
+              error: function (jqXHR, tranStatus) {
+                $('#result').text('Error');
+                $('#code').text(jqXHR.status);
+                x_request_id = jqXHR.getResponseHeader('X-Request-Id');
+                response_text = jqXHR.responseText;
+                $('#response').html(" Error Message : <b style='color: red'>" + response_text + "</b>.<br/> Your X-Request-Id is : <b>" + x_request_id + "</b>. Please contact support@freshdesk.com with this id for more information.");
+
+              }
+            }
+          );
+        }
+      );
+    });
+  </script>
 </body>
 
 </html>
